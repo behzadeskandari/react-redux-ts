@@ -7,11 +7,15 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.23",
+    "@types/minimist": "^1.2.1",
     "@types/node": "^12.20.12",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
+    "@types/react-redux": "^7.1.16",
+    "minimist": "^1.2.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
     "typescript": "^4.2.4",
     "web-vitals": "^1.1.1"
@@ -19,8 +23,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "node_modules/.bin/jasmine",
+    "eject": "react-scripts eject",
+    "json-server": "json-server --watch json-server/db.sjon --port 3001",
+    "dev": "concurrently -k \"json-server --watch json-server/db.json --port 3001\" \"npm start\" "
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.6.11",
+    "jasmine": "^3.7.0",
+    "json-server": "^0.16.3"
   }
 }
